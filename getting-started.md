@@ -56,7 +56,7 @@ Most commands print help when invoked w/o parameters.
 
 6. Modify the following files in Apache Hadoop distribution.
 
-  1.`vim $HADOOP_HOME/etc/hadoop/core-site.xml`:
+  a.`vim $HADOOP_HOME/etc/hadoop/core-site.xml`:
 ```html
 <configuration>
   <property>
@@ -71,7 +71,7 @@ Most commands print help when invoked w/o parameters.
 </configuration>
 ```
  
-   2.`vim $HADOOP_HOME/etc/hadoop/hdfs-site.xml`:
+   b.`vim $HADOOP_HOME/etc/hadoop/hdfs-site.xml`:
 ```html
 <configuration>
   <property>
@@ -81,7 +81,7 @@ Most commands print help when invoked w/o parameters.
 </configuration>
 ```
 
-   3.`vim $HADOOP_HOME/etc/hadoop/mapred-site.xml`:
+   c.`vim $HADOOP_HOME/etc/hadoop/mapred-site.xml`:
 You will be creating this file. It doesn’t exist in the original package.
 ```html
 <configuration>
@@ -100,7 +100,7 @@ You will be creating this file. It doesn’t exist in the original package.
 </configuration>
 ```
 
-   4.`vim $HADOOP_HOME/etc/hadoop/yarn-site.xml`:
+   d.`vim $HADOOP_HOME/etc/hadoop/yarn-site.xml`:
 ```html
 <configuration>
   <property>
