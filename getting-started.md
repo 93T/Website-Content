@@ -156,10 +156,7 @@ xxxxx ResourceManager
 
 ## Step 2 --- Install Harp
 
-1. Clone Harp repository. It is available at [DSC-SPIDAL/harp](https://github.com/DSC-SPIDAL/harp.git).
-```bash
-git clone https://github.com/DSC-SPIDAL/harp.git
-```
+1. Clone Harp repository using the code `git clone https://github.com/DSC-SPIDAL/harp.git`. It is also available at [DSC-SPIDAL/harp](https://github.com/DSC-SPIDAL/harp.git).
 
 2. Follow the [maven official instruction](http://maven.apache.org/install.html) to install maven.
 
