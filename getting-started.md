@@ -18,7 +18,7 @@ If you are using windows, we suggest you to install an Ubuntu system on a virtua
 
 2. Download and extract the hadoop-2.6.0 binary into your machine. It's available at [hadoop-2.6.0.tar.gz](https://archive.apache.org/dist/hadoop/core/hadoop-2.6.0/hadoop-2.6.0.tar.gz).
 
-3. Set the environment variables in `vim ~/.bashrc`.
+3. Set the environment variables in `~/.bashrc`. Access it by using the command `vim ~/.bashrc`.
 ```bash
 export JAVA_HOME=<where Java locates>
 #e.g. ~/jdk1.8.0_91
@@ -164,7 +164,7 @@ git clone https://github.com/DSC-SPIDAL/harp.git
 
 2. Follow the [maven official instruction](http://maven.apache.org/install.html) to install maven.
 
-3. Add environment variables in `vim ~/.bashrc`.
+3. Add environment variables to `~/.bashrc`.  Access it by using the command `vim ~/.bashrc`.
 ```bash
 export HARP_ROOT_DIR=<where Harp locates>
 #e.g. harp/harp-project
