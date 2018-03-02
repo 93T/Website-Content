@@ -14,11 +14,12 @@ If you are using windows, we suggest you to install an Ubuntu system on a virtua
 
 ## Step 1 --- Install Hadoop 2.6.0
 
-1. Make sure your computer can use `ssh` to access `localhost` and can install `Java` as well.
+1. Make sure your computer can use `ssh` to access `localhost` and can install `Java`, `vim`, and `Maven` When required.
 
 2. Download and extract the hadoop-2.6.0 binary into your machine. It's available at [hadoop-2.6.0.tar.gz](https://archive.apache.org/dist/hadoop/core/hadoop-2.6.0/hadoop-2.6.0.tar.gz).
 
 3. Set the environment variables in `~/.bashrc`. Access it by using the command `vim ~/.bashrc`.
+Note: you will need to install `vim` first before you can run this step.
 ```bash
 export JAVA_HOME=<where Java locates>
 #e.g. ~/jdk1.8.0_91
