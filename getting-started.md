@@ -19,7 +19,7 @@ If you are using windows, we suggest you to install an Ubuntu system on a virtua
 2. Download and extract the hadoop-2.6.0 binary into your machine. It's available at [hadoop-2.6.0.tar.gz](https://archive.apache.org/dist/hadoop/core/hadoop-2.6.0/hadoop-2.6.0.tar.gz).
 
 3. Set the environment variables in `~/.bashrc`. Access it by using the command `vim ~/.bashrc`.
-Note: you will need to install `vim` first before you can run this step.
+Note: If you don't have it already, you will need to install `vim` first before you can run this step.
 ```bash
 export JAVA_HOME=<where Java locates>
 #e.g. ~/jdk1.8.0_91
@@ -29,11 +29,9 @@ export YARN_HOME=$HADOOP_HOME
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 export PATH=$HADOOP_HOME/bin:$JAVA_HOME/bin:$PATH
 ```
-4. Run to make sure the changes are applied.
-```bash
-$ source ~/.bashrc
-```
-5. Check if environment variabls are set correctly
+4. Run `$ source ~/.bashrc` to make sure the changes are applied.
+
+5. Check if environment variabls are set correctly by running `$hadoop`. The results should look similar to the example below.
 ```bash
 $ hadoop
 Usage: hadoop [--config confdir] COMMAND
@@ -54,7 +52,7 @@ Usage: hadoop [--config confdir] COMMAND
 Most commands print help when invoked w/o parameters.
 ```
 
-6. Modify the following files in Apache Hadoop distribution.
+6. Follow steps a-d to modify the following files in Apache Hadoop distribution.
 
   a.`vim $HADOOP_HOME/etc/hadoop/core-site.xml`:
 ```html
@@ -127,7 +125,7 @@ You will be creating this file. It doesn’t exist in the original package.
 </configuration>
 ```
 
-7. Format the file system and you should be able to see it exits with status 0.
+7. Format the file system using the code `$ hdfs namenode -format`. You should be able to see it exits with status 0. The results should look similar to the example below.
 ```bash
 $ hdfs namenode -format
 ...
@@ -137,13 +135,13 @@ xx/xx/xx xx:xx:xx INFO namenode.NameNode: SHUTDOWN_MSG:
 SHUTDOWN_MSG: Shutting down NameNode at xxx.xxx.xxx.xxx
 ```
 
-8. Launch NameNode daemon, DataNode daemon, ResourceManager daemon and NodeManager Daemon.
+8. Run the two lines of code shown below separatly. This will Launch NameNode daemon, DataNode daemon, ResourceManager daemon and NodeManager Daemon.
 ```bash
 $ $HADOOP_HOME/sbin/start-dfs.sh
 $ $HADOOP_HOME/sbin/start-yarn.sh
 ```
 
-9. Check if the daemons started successfully with the following output.
+9. Check if the daemons started successfully by running `$ jps`. The output should look like the following except with actual inputs for 'NameNode', "SecondaryNameNode', etc. If it doesn't look like the example, then you will need to recheck steps 6 through 8 again.
 ```bash
 $ jps
 xxxxx NameNode
@@ -171,34 +169,25 @@ export HARP_ROOT_DIR=<where Harp locates>
 #e.g. harp/harp-project
 export HARP_HOME=$HARP_ROOT_DIR/harp-project
 ```
-4. Run source command to set the envrionment variables.
-```bash
-source ~/.bashrc
-```
+4. Run the same source command `source ~/.bashrc` to set the envrionment variables.
 
-5. If hadoop is still running, stop it first.
+5. If hadoop is still running, stop it first with the following code:
 ```bash
 $ $HADOOP_HOME/sbin/stop-dfs.sh
 $ $HADOOP_HOME/sbin/stop-yarn.sh
 ```
 
-6. Enter "harp" home directory
-```bash
-cd $HARP_ROOT_DIR
-```
+6. Enter "harp" home directory useing the code `cd $HARP_ROOT_DIR`.
 
-7. Compile harp
-```bash
-mvn clean package
-```
+7. Compile harp using the code `mvn clean package` Note: If you don't have it already, you will need to isntall Maven to run this step.
 
-8. Install harp plugin to hadoop
+8. Install harp plugin to hadoop as demonstrated in the example below:
 ```bash
 cp harp-project/target/harp-project-1.0-SNAPSHOT.jar $HADOOP_HOME/share/hadoop/mapreduce/
 cp third_party/fastutil-7.0.13.jar $HADOOP_HOME/share/hadoop/mapreduce/
 ```
 
-9. Edit mapred-site.xml in $HADOOP_HOME/etc/hadoop, add java opts settings for map-collective tasks. For example:
+9. Edit mapred-site.xml in $HADOOP_HOME/etc/hadoop by using the code `vim $HADOOP_HOME/etc/hadoop`, add java opts settings for map-collective tasks. For example:
   ```xml
    <property>
      <name>mapreduce.map.collective.memory.mb</name>
@@ -210,19 +199,16 @@ cp third_party/fastutil-7.0.13.jar $HADOOP_HOME/share/hadoop/mapreduce/
    </property>
    ```
 
-10. To develop Harp applications, remember to add the following property in job configuration:
+10. Now you've finished the instalation! To develop Harp applications, remember to add the following property in job configuration:
 ```bash
 jobConf.set("mapreduce.framework.name", "map-collective");
 ```
 
 ## Step 3 Run harp kmeans example
 
-1. Copy harp examples to $HADOOP_HOME
-```bash
-cp harp-app/target/harp-app-1.0-SNAPSHOT.jar $HADOOP_HOME
-```
+1. Copy harp examples to $HADOOP_HOME useing the code `cp harp-app/target/harp-app-1.0-SNAPSHOT.jar $HADOOP_HOME`
 
-2. Start Hadoop
+2. Start Hadoop. You will first want to move to the $HADOOP_HOME location as demonstrated in the example below.
 ```bash
     cd $HADOOP_HOME
     sbin/start-dfs.sh
