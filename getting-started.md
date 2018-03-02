@@ -70,7 +70,7 @@ Most commands print help when invoked w/o parameters.
   </property>
 </configuration>
 ```
-
+ 
    (2).`vim $HADOOP_HOME/etc/hadoop/hdfs-site.xml`:
 ```html
 <configuration>
@@ -81,7 +81,7 @@ Most commands print help when invoked w/o parameters.
 </configuration>
 ```
 
-   (3).`vim $HADOOP_HOME/etc/hadoop/mapred-site.xml`:
+  (3).`vim $HADOOP_HOME/etc/hadoop/mapred-site.xml`:
 You will be creating this file. It doesn’t exist in the original package.
 ```html
 <configuration>
