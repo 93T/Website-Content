@@ -44,7 +44,7 @@ The K-Means algorithm simply repeats the following set of steps until there is n
 
 * which collective communication operations is suitable to synchronize model?
 
-    For solution without model parallelism, Synchronize replicas of the model by allreduce, then calculate the new centroids and go to the next iteration. For vanilla kmeans, the combination of reduce/broadcast, push/pull, regroup/allgather are similar to allreduce.
+    For solution without model parallelism, Synchronize replicas of the model by `allreduce`, then calculate the new centroids and go to the next iteration. For vanilla kmeans, the combination of `reduce`/`broadcast`, `push`/`pull`, `regroup`/`allgather` are similar to `allreduce`.
 
     For solution with model parallelism, there is no replica exists, but the movement of the model partitions are a kind of synchronized collective operation, supported in Harp by an abstraction of rotate.
 
